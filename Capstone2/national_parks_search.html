@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>National Parks Search</title>
+  <link rel="stylesheet" href="css/national_parks_search.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Outdoor Adventure</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mountains_information.html">Mountains Information</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <h1>National Parks Search</h1>
+    <form id="searchForm">
+      <label for="location">Search by Location:</label>
+      <select id="location">
+        <!-- Options populated dynamically using JavaScript -->
+      </select>
+
+      <label for="parkType">Search by Park Type:</label>
+      <select id="parkType">
+        <!-- Options populated dynamically using JavaScript -->
+      </select>
+
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="searchResults">
+      <!-- Search results displayed dynamically using JavaScript -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 Outdoor Adventure. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  
+  <script src="scripts/locationData.js"></script>
+  <script src="scripts/parkTypeData.js"></script>
+  <script src="scripts/nationalParkData.js"></script>
+  <script src="scripts/national_parks_search.js"></script>
+</body>
+</html>

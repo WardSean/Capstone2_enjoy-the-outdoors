@@ -1,0 +1,28 @@
+/* Styles for header and footer - same as homepage.css */
+
+/* Styles for main content */
+main {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  select {
+    margin-top: 5px;
+    padding: 5px;
+  }
+  
+  #mountainDetails {
+    margin-top: 20px;
+  }
+  
+  /* Additional styles as per your design preferences */
+  

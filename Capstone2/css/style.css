@@ -1,0 +1,50 @@
+.element {
+    all: none;
+  }
+/* Header */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+    background: rgb(197, 218, 255);
+    padding: 1%;
+    border-radius: 5%;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+  }
+  
+  /* Main content */
+  main {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Add more specific styles for other elements as needed */
+  
