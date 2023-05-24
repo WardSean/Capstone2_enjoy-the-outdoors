@@ -2,8 +2,48 @@
 <html>
 <head>
   <title>Outdoor Adventure</title>
-  <link rel="stylesheet" href="css/homepage.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom Styles for Homepage */
+    .hero-section {
+      background-image: url("images/Garfield-StoryImage.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .hero-section h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .hero-section a {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #333333;
+      font-size: 18px;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-section a:hover {
+      background-color: #eeeeee;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -12,15 +52,21 @@
     <nav>
       <ul>
         <li><a href="national_parks_search.html">National Parks Search</a></li>
+    
         <li><a href="mountains_information.html">Mountains Information</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Main content -->
-  <main>
-    <h1>Welcome to Outdoor Adventure!</h1>
-    <p>Highlight your simple organization and provide links to other pages.</p>
+  <main class="main">
+    <section class="hero-section">
+      <h1>Welcome to Outdoor Adventure!</h1>
+      <p>Highlight your simple organization and provide links to other pages.</p>
+      <a href="national_parks_search.html">Find National Parks</a>
+      <br>
+      <a href="mountains_information.html">Explore Mountains</a>
+    </section>
   </main>
 
   <!-- Footer -->

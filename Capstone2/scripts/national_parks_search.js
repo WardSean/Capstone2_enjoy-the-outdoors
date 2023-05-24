@@ -65,27 +65,75 @@ function displaySearchResults(results) {
   if (results.length === 0) {
     searchResults.textContent = "No results found.";
   } else {
-    for (const result of results) {
-      const parkName = document.createElement("h3");
-      parkName.textContent = result.LocationName;
+    // Create row and card containers
+    var rowDiv;
+    var cardContainer;
 
-      const address = document.createElement("p");
-      address.textContent = `Address: ${result.Address}, ${result.City}, ${result.State}, ${result.ZipCode}`;
+    for (var i = 0; i < results.length; i++) {
+      // Create a new row and card container for every third card
+      if (i % 3 === 0) {
+        rowDiv = document.createElement("div");
+        rowDiv.classList.add("row");
+        searchResults.appendChild(rowDiv);
+      }
 
-      const phone = document.createElement("p");
-      phone.textContent = `Phone: ${result.Phone}`;
+      // Create a Bootstrap card element
+      var card = document.createElement("div");
+      card.className = "card mb-3 col-md-4";
 
-      const fax = document.createElement("p");
-      fax.textContent = `Fax: ${result.Fax}`;
+      // Create the card header
+      var cardHeader = document.createElement("div");
+      cardHeader.className = "card-header d-flex justify-content-between align-items-center";
 
-      searchResults.appendChild(parkName);
-      searchResults.appendChild(address);
-      searchResults.appendChild(phone);
-      searchResults.appendChild(fax);
-      searchResults.appendChild(document.createElement("hr"));
+      // Set the card title
+      var title = document.createElement("h3");
+      title.className = "card-title";
+      title.textContent = results[i].LocationName;
+      cardHeader.appendChild(title);
+
+      // Append the card header to the card
+      card.appendChild(cardHeader);
+
+      // Create the card body
+      var cardBody = document.createElement("div");
+      cardBody.className = "card-body";
+
+      // Set the address
+      var address = document.createElement("p");
+      address.className = "card-text";
+      address.textContent = "Address: " + results[i].Address + ", " + results[i].City + ", " + results[i].State + ", " + results[i].ZipCode;
+      cardBody.appendChild(address);
+
+      // Set the phone
+      var phone = document.createElement("p");
+      phone.className = "card-text";
+      phone.textContent = "Phone: " + results[i].Phone;
+      cardBody.appendChild(phone);
+
+      // Set the fax
+      var fax = document.createElement("p");
+      fax.className = "card-text";
+      fax.textContent = "Fax: " + results[i].Fax;
+      cardBody.appendChild(fax);
+
+      // Append the card body to the card
+      card.appendChild(cardBody);
+
+      // Append the card to the current row
+      rowDiv.appendChild(card);
+
+      // Create a new row and card container for every third card
+      if ((i + 1) % 3 === 0 || (i + 1) === results.length) {
+        rowDiv = null;
+        cardContainer = null;
+      }
     }
   }
 }
+
+
+
+
 
 // Event listener for form submission
 searchForm.addEventListener("submit", handleFormSubmit);

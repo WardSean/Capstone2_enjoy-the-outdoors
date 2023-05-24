@@ -1,50 +1,74 @@
-.element {
-    all: none;
-  }
 /* Header */
 header {
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline-block;
-    margin-right: 10px;
-    background: rgb(197, 218, 255);
-    padding: 1%;
-    border-radius: 5%;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-  }
-  
-  /* Main content */
-  main {
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 32px;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Add more specific styles for other elements as needed */
-  
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+  background: rgb(197, 218, 255);
+  padding: 1%;
+  border-radius: 5%;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+/* Main content */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+select {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+/* Footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
+
+.star-button {
+  margin: 50px 0;
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  background-image: url(images/star_unfav.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.star-button.filled {
+  background-image: url(images/star_fav.png);
+}
