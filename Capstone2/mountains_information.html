@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mountains Information</title>
+  <title>Mountains</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="css/mountains_information.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -25,10 +26,20 @@
     <select id="mountainSelect">
       <!-- Options populated dynamically using JavaScript -->
     </select>
+    <button id="saveFavoritesButton" class="btn btn-primary">Show Favorites</button> 
 
     <div id="mountainDetails">
       <!-- Mountain details displayed dynamically using JavaScript -->
     </div>
+
+    <div id="favoritesSection" style="display: none">
+      <h2>Favorites</h2>
+      <div id="mountainDetails"></div>
+      <ul id="favoritesList">
+        <!-- Favorite items displayed dynamically using JavaScript -->
+      </ul>
+    </div>
+
   </main>
 
   <!-- Footer -->

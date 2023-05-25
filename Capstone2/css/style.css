@@ -54,21 +54,67 @@ footer {
   text-align: center;
 }
 
+.star-button-container {
+  position: absolute;
+  top: 40px;
+  left: 10px;
+  z-index: 1;
+  outline: none;
+}
+
 .star-button {
-  margin: 50px 0;
-  position: relative;
-  display: inline-block;
+  position: absolute;
+  top: 2px;
+  left: -8px;
   width: 40px;
   height: 40px;
   cursor: pointer;
   background-color: transparent;
   border: none;
   padding: 0;
-  background-image: url(images/star_unfav.png);
-  background-repeat: no-repeat;
-  background-size: contain;
+  outline: none !important;
 }
+
+.star-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  outline: none !important;
+  border: none;
+}
+
 
 .star-button.filled {
   background-image: url(images/star_fav.png);
+  outline: none;
+  border: none;
+}
+
+.star {
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('star-icon.png');
+  background-size: cover;
+}
+
+.favorited {
+  background-image: url('images/star_fav.png');
+}
+
+.unfavorited {
+  background-image: url('images/star_unfav.png');
+}
+
+/* Other card styles and layout */
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Additional styles as per your requirements */
+#toggleFavorites {
+  margin-left: 10px;
 }
