@@ -79,52 +79,6 @@ function displayFavoriteCards() {
   mountainDetails.appendChild(rowDiv);
 }
 
-// Function to display mountain information based on the selected mountain
-function displayMountainDetails() {
-  var selectedMountain = mountainSelect.value;
-  var mountainDetails = document.getElementById("mountainDetails");
-
-  // Clear existing cards and sunrise/sunset information
-  mountainDetails.innerHTML = "";
-
-  if (selectedMountain === "all" || selectedMountain === "") {
-    // Show all mountains
-    var mountainRows = chunkArray(mountainsArray, 3);
-    for (var row of mountainRows) {
-      var rowDiv = document.createElement("div");
-      rowDiv.classList.add("row");
-
-      for (var mountain of row) {
-        var card = createMountainCard(mountain);
-        rowDiv.appendChild(card);
-      }
-
-      mountainDetails.appendChild(rowDiv);
-    }
-  } else {
-    // Find the selected mountain in the mountainsArray
-    var selectedMountainObj = mountainsArray.find(function (mountain) {
-      return mountain.name === selectedMountain;
-    });
-    if (selectedMountainObj) {
-      var card = createMountainCard(selectedMountainObj);
-      mountainDetails.appendChild(card);
-    }
-  }
-
-  // Check if any favorites exist
-  var favoriteCards = document.querySelectorAll(".card.favorite");
-  if (favoriteCards.length === 0) {
-    // No favorites, hide the "Favorites" section
-    var favoritesSection = document.getElementById("favoritesSection");
-    favoritesSection.style.display = "none";
-  } else {
-    // Favorites exist, show the "Favorites" section
-    var favoritesSection = document.getElementById("favoritesSection");
-    favoritesSection.style.display = "block";
-  }
-}
-
 // Function to chunk an array into smaller arrays of a specified size
 function chunkArray(arr, size) {
   var chunkedArr = [];
@@ -219,10 +173,15 @@ function createMountainCard(mountain) {
     card.classList.toggle("favorite");
     if (card.classList.contains("favorite")) {
       starIcon.src = "images/star_fav.png";
+      // Save the favorited mountain name as a cookie
+      document.cookie = "favorite_" + mountain.name + "=true; expires=Fri, 31 Dec 9999 23:59:59 GMT";
     } else {
       starIcon.src = "images/star_unfav.png";
+      // Delete the favorited mountain cookie
+      document.cookie = "favorite_" + mountain.name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
   });
+  
 
   return card;
 }
@@ -328,6 +287,38 @@ function displayMountainDetails() {
   }
 }
 
+
+// Event listener for when the mountain select dropdown changes
+mountainSelect.addEventListener("change", function () {
+  if (mountainSelect.value === "favorites") {
+    displayFavoriteCards();
+  } else {
+    displayMountainDetails();
+  }
+});
+
+
+// Function to display favorite cards
+function displayFavoriteCards() {
+  // Filter the favorite cards
+  var favoriteCards = document.querySelectorAll(".card.favorite");
+
+  // Clear existing cards
+  var mountainDetails = document.getElementById("mountainDetails");
+  mountainDetails.innerHTML = "";
+
+  // Create a row div to hold the favorite cards
+  var rowDiv = document.createElement("div");
+  rowDiv.classList.add("row");
+
+  for (var card of favoriteCards) {
+    rowDiv.appendChild(card);
+  }
+
+  mountainDetails.appendChild(rowDiv);
+}
+
+
 // Event listener for when the page is fully loaded
 window.addEventListener("load", function () {
   // Call the function to populate the mountain dropdown initially
@@ -338,7 +329,48 @@ window.addEventListener("load", function () {
 
   // Display all mountains initially
   displayMountainDetails();
+
+  // Check for favorited mountain cookies and mark the corresponding cards as favorited
+  setFavoritedCardsFromCookies();
 });
+
+// Function to set favorited cards from cookies
+function setFavoritedCardsFromCookies() {
+  var cookies = document.cookie.split(";");
+
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i].trim();
+
+    if (cookie.startsWith("favorite_")) {
+      var mountainName = cookie.substring(9).split("=")[0];
+
+      var card = findCardByMountainName(mountainName);
+      if (card) {
+        card.classList.add("favorite");
+        var starButton = card.querySelector(".star-button");
+        var starIcon = starButton.querySelector("img");
+        starIcon.src = "images/star_fav.png";
+      }
+    }
+  }
+}
+
+// Function to find a card by mountain name
+function findCardByMountainName(mountainName) {
+  var cards = document.querySelectorAll(".card");
+
+  for (var i = 0; i < cards.length; i++) {
+    var card = cards[i];
+    var title = card.querySelector(".card-title").textContent;
+
+    if (title === mountainName) {
+      return card;
+    }
+  }
+
+  return null;
+}
+
 
 // Event listener for when the mountain select dropdown changes
 mountainSelect.addEventListener("change", displayMountainDetails);
