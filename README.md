@@ -12,3 +12,6 @@ National Parks Search (national_parks_search.html): This page allows users to se
 Mountain Information (mountains_information.html): The mountain information page provides details about various mountains. Users can select a mountain from a dropdown menu, and the page dynamically displays information about the selected mountain, such as its name, description, elevation, and potentially other relevant details. It allows users to learn about different mountains and their characteristics.
 
 These pages work together to provide information and assist users in exploring outdoor adventure options. The home page introduces the website's theme, while the national parks search and mountain information pages offer specific features to help users find and learn about national parks and mountains of interest.
+
+![image](https://github.com/WardSean/Capstone2_enjoy-the-outdoors/assets/130578074/7f225302-2942-4965-a4e6-597b68ca40dd)
+One interesting piece of code is the favoriting option. It uses cookies to keep the favorites saved.
